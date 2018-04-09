@@ -25,8 +25,12 @@ public class Point {
     public String pointToString()
     {
         //initialize the string that will go in.
-        String theString = "";
+        String theString = "(";
 
+        theString += Double.toString(x);    //Casting to a String
+        theString += ",";
+        theString += Double.toString(y);    //Casting to a String
+        theString += ")";
 
         return theString;
     }

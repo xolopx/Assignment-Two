@@ -14,5 +14,7 @@ public class theMain {
         bob.setPoints(1,1);
         System.out.println("The point is " +bob.distOrigin()+ " units from the origin. \n");
 
+        System.out.println("The point is: " + bob.pointToString());
+
     }
 }
