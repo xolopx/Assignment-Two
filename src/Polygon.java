@@ -29,8 +29,16 @@ public class Polygon {
     public String polyToString()
     {
 
-        String theString ="";
-
+        String theString ="[";
+        //The last point in sequence is repeated so we don't want to print it hence i<pointNum-1.
+        for(int i = 0; i<pointNum-1;i++){
+            theString += sequence[i].pointToString();
+            if(i!=pointNum-2)
+            {
+                theString +=", ";
+            }
+        }
+        theString+="]:"+ String.format("%5.2f",calcArea());
         return theString;
     }
 
@@ -41,7 +49,7 @@ public class Polygon {
         double interimResult = 0;
         //"n" form the formula is 1 more than the number of points on the polygon. This is not considered anywhere so we
         // modify the formula to be (n-1) instead of (n-2).
-        for (int i = 0; i < (pointNum); i++)
+        for (int i = 0; i < (pointNum-1); i++)
         {
             interimResult = (sequence[i+1].getX()+sequence[i].getX())*(sequence[i+1].getY()-sequence[i].getY());
             area += interimResult;

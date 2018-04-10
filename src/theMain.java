@@ -7,14 +7,15 @@ public class theMain {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello World!");
-        System.out.println("Yah bitch...");
 
-        Point bob = new Point();
-        bob.setPoints(1,1);
-        System.out.println("The point is " +bob.distOrigin()+ " units from the origin. \n");
+       Polygon bob = new Polygon(4);
 
-        System.out.println("The point is: " + bob.pointToString());
+       bob.getPoint(0).setPoints(1,1);
+       bob.getPoint(1).setPoints(1,2);
+       bob.getPoint(2).setPoints(2,1);
+       bob.getPoint(3).setPoints(1,1);
+
+       System.out.println(bob.polyToString());
 
     }
 }

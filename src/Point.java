@@ -27,10 +27,7 @@ public class Point {
         //initialize the string that will go in.
         String theString = "(";
 
-        theString += Double.toString(x);    //Casting to a String
-        theString += ",";
-        theString += Double.toString(y);    //Casting to a String
-        theString += ")";
+        theString += String.format("%4.2f",x) + "," + String.format("%4.2f",y) + ")";
 
         return theString;
     }
