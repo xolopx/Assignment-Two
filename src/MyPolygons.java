@@ -23,6 +23,13 @@ public class MyPolygons {
         list_length = 0;
     }
 
+    //Returns a polygon so that I don't break hiding by returning a node instead.
+    public Polygon getPolygon()
+    {
+        //This returns the polygon in the current node.
+        return current_ptr_.get_data();
+    }
+
     public void add_to_head(Polygon data) {
         //return current to sentinel.
         reset();
@@ -37,11 +44,11 @@ public class MyPolygons {
         add(data);
     }
 
-
-    public Node getNode()
-        {
-            return current_ptr_;
-        }
+//This badboi should not exist.
+//    public Node getNode()
+//        {
+//            return current_ptr_;
+//        }
 
 
     public void add(Polygon data)
@@ -113,7 +120,7 @@ public class MyPolygons {
         current_ptr_ = sentinel.get_next();
 
         //return the node stored at the current, spoiler it's the head.
-        return getNode();
+        return current_ptr_;
 
     }
 
