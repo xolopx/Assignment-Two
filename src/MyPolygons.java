@@ -80,7 +80,7 @@ public class MyPolygons {
     current_ptr_ = current_ptr_.get_previous();
 }
 
-
+    //Resets the current pointer to the sentinel.
     public void reset() {
     current_ptr_= sentinel;
 }
