@@ -23,20 +23,20 @@ public class MyPolygons {
         list_length = 0;
     }
 
-    //Returns a polygon so that I don't break hiding by returning a node instead.
+    //Returns polygon at current. Does NOT return a node.
     public Polygon getPolygon()
     {
         //This returns the polygon in the current node.
         return current_ptr_.get_data();
     }
-
+    //This adds a new node and piece of data to the head of the list. Uses add() method.
     public void add_to_head(Polygon data) {
         //return current to sentinel.
         reset();
         add(data);
     }
 
-
+    //This adds a new node and piece of data to the tail of the list. uses add() method.
     public void add_to_tail(Polygon data) {
         //Set current to the previous of the sentinel (aka the tail).
         current_ptr_ = sentinel.get_previous();
@@ -44,13 +44,8 @@ public class MyPolygons {
         add(data);
     }
 
-//This badboi should not exist.
-//    public Node getNode()
-//        {
-//            return current_ptr_;
-//        }
-
-
+    //This is a generic method used for both add to head and tail. It creates a new node and places the data in it then
+    //places the node in a position that is dictated by where current_ptr_ points.
     public void add(Polygon data)
     {
         //1. create new node on heap
@@ -70,12 +65,12 @@ public class MyPolygons {
 
     }
 
-
+    //Moves the current ptr forward.
     public void forward() {
     current_ptr_ = current_ptr_.get_next();
 }
 
-
+    //Moves the current ptr back.
     public void back() {
     current_ptr_ = current_ptr_.get_previous();
 }
@@ -85,7 +80,7 @@ public class MyPolygons {
     current_ptr_= sentinel;
 }
 
-
+    //inserts a node in the position given by pushing node the node in that position down in the list.
     public void insert(int position, Polygon data)
     {
         //reset the position of the current pointer to have a starting point.
@@ -100,32 +95,24 @@ public class MyPolygons {
         add(data);
     }
 
-
-    public Node pop()
-    {
-        //Create a pointer to store the retrieved head in.
-        Node theHead;
-        //retrieve the head.
-        theHead = getHead();
-        //delete the head.
-        deleteHead();
-
-        return theHead;
-    }
-
-
-    public Node getHead()
+    //Takes the head off the list and returns the data inside it.
+    public Polygon pop()
     {
         //make the current the next of the sentinel (aka the head).
         current_ptr_ = sentinel.get_next();
+        //Create a pointer to store the retrieved head in.
+        Node theHead;
+        //retrieve the head.
+        theHead = current_ptr_;
+        //delete the head.
+        deleteHead();
 
-        //return the node stored at the current, spoiler it's the head.
-        return current_ptr_;
-
+        return theHead.get_data();
     }
 
 
-    void deleteHead()
+    //Simply removes the head of the list.
+    public void deleteHead()
     {
         //set the current to the sentinel.
         reset();
@@ -135,14 +122,13 @@ public class MyPolygons {
         remove();
 
     }
-
-    int getSize() {
+    //Returns the size of the list.
+    public int getSize() {
     return list_length;
 }
 
-    void remove() {
-
-    Node pointToOld = current_ptr_;
+    //Removes the node at the current ptr.
+    public void remove() {
 
     //Set the heads previous' next to the heads next. So splice out the previous' life.
     current_ptr_.get_previous().set_next(current_ptr_.get_next());
@@ -152,10 +138,24 @@ public class MyPolygons {
     forward();
     //decrement length.
     list_length--;
-
-
-
     }
 
+    //Returns the data stored in the head node.
+    public Polygon getHead() {
+        //This is the head polygon.
+        Polygon theHead = sentinel.get_next().get_data();
+
+        return theHead;
+        //Sure thing babe.
+    }
+
+    //Returns the data stored in the tail node.
+    public Polygon getTail(){
+        //This is the tail polygon.
+        Polygon theTail = sentinel.get_previous().get_data();
+
+        return theTail;
+
+    }
 
 }
