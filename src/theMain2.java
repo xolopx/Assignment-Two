@@ -20,6 +20,8 @@ public class theMain2
         printer(unsortedList);
         System.out.println("\n\n");
 
+        sortedList.sort();
+
 
 
 

@@ -3,11 +3,12 @@
  */
 public class MyPolygons {
 
-    private Node head_ptr_ = new Node();
-    private Node tail_ptr_ = new Node();
-    private Node current_ptr_ = new Node();
-    private Node sentinel = new Node();
-    private int list_length = 0;
+    //"protected" maintains encapsulation but allows subclasses access to member variables.
+    protected Node head_ptr_ = new Node();
+    protected Node tail_ptr_ = new Node();
+    protected Node current_ptr_ = new Node();
+    protected Node sentinel = new Node();
+    protected int list_length = 0;
 
     MyPolygons() {
 
@@ -38,8 +39,8 @@ public class MyPolygons {
 
     //This adds a new node and piece of data to the tail of the list. uses add() method.
     public void add_to_tail(Polygon data) {
-        //Set current to the previous of the sentinel (aka the tail).
-        current_ptr_ = sentinel.get_previous();
+        //Set current to the previous to sentinel. Point to sentinel as add() pushed the list down.
+        current_ptr_ = sentinel;
         //pop that badboi in the list yo.
         add(data);
     }
@@ -80,7 +81,7 @@ public class MyPolygons {
     current_ptr_= sentinel;
 }
 
-    //inserts a node in the position given by pushing node the node in that position down in the list.
+    //inserts a node in the position given by pushing the node in that position down in the list.
     public void insert(int position, Polygon data)
     {
         //reset the position of the current pointer to have a starting point.

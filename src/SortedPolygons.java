@@ -7,11 +7,21 @@
  */
 public class SortedPolygons extends MyPolygons implements ComparePolygons {
 
-    //This function sorts Polygons that are passed to it using the insertion sort method and implementing the
-    //ComparePolygons interface.
-    public void insertSort(Polygon newPolygon){
+    //Constructor, must be redone for the subclass as constructor in superclass is not a "member method".
+    SortedPolygons() {
 
+        //All signs point to sentinel.
+        head_ptr_ = sentinel;
+        tail_ptr_ = sentinel;
+        //Tell that sentinel where to go.
+        sentinel.set_next(head_ptr_);
+        sentinel.set_previous(tail_ptr_);
+        //currently we are pointed at the sentinel as current because it's the only goddamn node.
+        current_ptr_ = sentinel;
+        //We will call the list length zero because the sentinel has no data in it.
+        list_length = 0;
     }
+
     //This method compares the polygons passed to it, if the "newPolygon" is larger it will return true else false.
     //This is an override of an abstract method from the interface ComparePolygons
     public boolean comparePoly(Polygon newPolygon, Polygon oldPolygon){
@@ -46,6 +56,99 @@ public class SortedPolygons extends MyPolygons implements ComparePolygons {
         //If it somehow gets to this condition return false.
         else return false;
     }
+    //Moves current to a desired position.
+    //Mode 0 = forward, Mode 1 = back.
+    //Position is where to go to.
+    void moveCurrent(int mode, int toPosition)
+    {
+        reset();
+
+        if(mode==1){
+            for(int i = 0;i<toPosition;i++){
+                forward();
+            }
+        }
+        else if(mode == 0)
+        {
+            for(int i = 0;i<toPosition;i++){
+              back();
+            }
+        }
+        else{
+            System.out.println("You did not use this method correctly it is mode 1 or 0 m8.");
+        }
+
+    }
+
+    //This function sorts the list implementing ComparePolygons interface. Isn't really amy insertion involved but I guess
+    //if you can add a polygon and then just sort the list again.
+    public void sort(){
+
+        //Counter for how many polygons must be sorted.
+        int leftToSort = list_length-1;
+        //This is the position of the last polygon in the "sorted section" (aka SS) of the list .
+        int sortedPosition = 1;
+        //polyUS = unsorted section polygon.
+        //polySS = sorted section polygon.
+        Polygon polyUS,polySS;
+
+        if(list_length == 0 || list_length == 1){
+            System.out.println("Why sort such a small list yo'?");
+        }
+        else{
+            //leftToSort will be decremented as each polygon is processed. This is the main processing loop.
+            while(leftToSort !=0){
+                //Move the current to the beginning of the unsorted list.
+                moveCurrent(0,sortedPosition+1);
+               //Grab polygon first in unsorted list.
+                polyUS = getPolygon();
+                //Compare to all of the polygons in the "sorted part of the list" using for-loop.
+                //This is the "sorted section" comparison loop.
+                for(int i=0;i<sortedPosition;i++){
+
+                    //This will move to the polygon to check against in the "sorted section" (aka SS).
+                    moveCurrent(0,sortedPosition-i);
+                    polySS = getPolygon();
+                    //If the "unsorted section" (aka US) polygon is smaller than the SS polygon they must swap positions.
+                    //To do this the US polygon is deleted and reinserted in the correct position, pushing items to it's
+                    //right (lower in the list) down.
+                    if(!comparePoly(polyUS,polySS)){
+                        //This is the position that the polyUS is at.
+                        moveCurrent(0,sortedPosition+1);
+                        //remove the US polygon.
+                        remove();
+                        //reinsert US polygon in the correct position. The position will be one to the right
+                        insert(getCurrentPosition()-1,polyUS);
+                    }
+                    //Else temp1 was larger and so can stay in its position.
+                }
+                //Each time a polygon is sorted this goes down.
+                leftToSort --;
+                //And this goes up.
+                sortedPosition++;
+            }
+        }
+
+    }
+
+
+
+    //This function swaps the position of two polygons in the list.
+    public void swap(){
+
+    }
+    //returns the current position.
+    public int getCurrentPosition(){
+        int thePosition = 0;
+
+        while(current_ptr_!=sentinel){
+            thePosition++;
+            back();
+        }
+        return thePosition;
+    }
+
+
 }
 
 
