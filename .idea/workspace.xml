@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="374ed055-4918-4387-9f36-c2358ae26f15" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlanarShape.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/ComparePolygons.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/MyPolygons.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/SortedPolygons.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/theMain2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ComparePolygons.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TimeTrack.xlsx" afterPath="$PROJECT_DIR$/TimeTrack.xlsx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Circle.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/MyPolygons.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/SortedPolygons.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/PlanarShape.class" afterPath="$PROJECT_DIR$/out/production/Assignment-Two/PlanarShape.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/Polygon.class" afterPath="$PROJECT_DIR$/out/production/Assignment-Two/Polygon.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Assignment-Two/data.txt" afterPath="$PROJECT_DIR$/out/production/Assignment-Two/data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyPolygons.java" afterPath="$PROJECT_DIR$/src/MyPolygons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Node.java" afterPath="$PROJECT_DIR$/src/Node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlanarShape.java" afterPath="$PROJECT_DIR$/src/PlanarShape.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Polygon.java" afterPath="$PROJECT_DIR$/src/Polygon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/SortedPolygons.java" afterPath="$PROJECT_DIR$/src/SortedPolygons.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/data.txt" afterPath="$PROJECT_DIR$/src/data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/theMain2.java" afterPath="$PROJECT_DIR$/src/theMain2.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,10 +37,12 @@
       <file leaf-file-name="theMain2.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/theMain2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="157" column="44" lean-forward="false" selection-start-line="157" selection-start-column="44" selection-end-line="157" selection-end-column="44" />
+            <state relative-caret-position="476">
+              <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
               <folding>
                 <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+                <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+                <element signature="method#printer#0;class#theMain2#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,23 +51,37 @@
       <file leaf-file-name="PlanarShape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlanarShape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-              <folding />
+            <state relative-caret-position="156">
+              <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding>
+                <element signature="method#originDistance#0;class#PlanarShape#0" expanded="false" />
+                <element signature="method#compareTo#0;class#PlanarShape#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Polygon.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Polygon.java">
+      <file leaf-file-name="Circle.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Circle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
-                <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-                <element signature="method#area#0;class#Polygon#0" expanded="false" />
-                <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
-                <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
+                <element signature="e#0#1405#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Point.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="46" column="69" lean-forward="true" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="69" />
+              <folding>
+                <element signature="method#Point#0;class#Point#0" expanded="false" />
+                <element signature="method#setPoints#0;class#Point#0" expanded="false" />
+                <element signature="method#pointToString#0;class#Point#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -152,10 +160,11 @@
         <option value="$PROJECT_DIR$/src/data.txt" />
         <option value="$PROJECT_DIR$/src/Node.java" />
         <option value="$PROJECT_DIR$/src/LinkedList.java" />
-        <option value="$PROJECT_DIR$/src/PlanarShape.java" />
         <option value="$PROJECT_DIR$/src/SortedList.java" />
         <option value="$PROJECT_DIR$/src/theMain2.java" />
         <option value="$PROJECT_DIR$/src/Polygon.java" />
+        <option value="$PROJECT_DIR$/src/PlanarShape.java" />
+        <option value="$PROJECT_DIR$/src/Circle.java" />
       </list>
     </option>
   </component>
@@ -214,7 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,8 +251,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -695,11 +704,12 @@
       <workItem from="1524447340155" duration="12463000" />
       <workItem from="1524966074678" duration="21356000" />
       <workItem from="1525009709450" duration="2088000" />
+      <workItem from="1525012211778" duration="1729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49201000" />
+    <option name="totallyTimeSpent" value="50930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="696" extended-state="6" />
@@ -715,7 +725,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30550623" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21492007" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3197158" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -745,7 +755,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="45" />
+      <option name="time" value="49" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -754,20 +764,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PlanarShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/theMain2.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2873">
           <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding>
             <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+            <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+            <element signature="method#printer#0;class#theMain2#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -786,8 +790,7 @@
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
           </folding>
         </state>
@@ -813,6 +816,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+            <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+            <element signature="method#printer#0;class#theMain2#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -844,8 +849,7 @@
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
           </folding>
         </state>
@@ -864,6 +868,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+            <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+            <element signature="method#printer#0;class#theMain2#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -887,8 +893,7 @@
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
           </folding>
         </state>
@@ -907,6 +912,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+            <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+            <element signature="method#printer#0;class#theMain2#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -931,8 +938,7 @@
           <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
           </folding>
         </state>
@@ -958,8 +964,7 @@
           <caret line="62" column="4" lean-forward="false" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
           </folding>
         </state>
@@ -971,6 +976,8 @@
           <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+            <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+            <element signature="method#printer#0;class#theMain2#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -989,8 +996,7 @@
           <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
           </folding>
         </state>
@@ -1015,13 +1021,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/theMain.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/src.zip!/java/util/prefs/PreferenceChangeEvent.java" />
-    <entry file="file://$PROJECT_DIR$/src/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_121/src.zip!/java/lang/String.java" />
     <entry file="file://$USER_HOME$/Google Drive/University/2018/sem 1/SENG2200/Assignments/Assignment One/java CLDLL.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1030,9 +1029,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyPolygons.java" />
     <entry file="file://$PROJECT_DIR$/src/SortedPolygons.java" />
     <entry file="file://$PROJECT_DIR$/src/ComparePolygons.java" />
+    <entry file="file://$PROJECT_DIR$/src/data.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SortedList.java" />
+    <entry file="file://$PROJECT_DIR$/src/LinkedList.java" />
+    <entry file="file://$PROJECT_DIR$/src/MyPolygons.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Node.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1045,57 +1061,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/data.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/SortedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="80" column="52" lean-forward="true" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="48" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/theMain2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="157" column="44" lean-forward="false" selection-start-line="157" selection-start-column="44" selection-end-line="157" selection-end-column="44" />
+        <state relative-caret-position="476">
+          <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
           <folding>
             <element signature="method#readerSup#0;class#theMain2#0" expanded="false" />
+            <element signature="method#readerSub#0;class#theMain2#0" expanded="false" />
+            <element signature="method#printer#0;class#theMain2#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlanarShape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="156">
+          <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="method#originDistance#0;class#PlanarShape#0" expanded="false" />
+            <element signature="method#compareTo#0;class#PlanarShape#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="46" column="69" lean-forward="true" selection-start-line="46" selection-start-column="15" selection-end-line="46" selection-end-column="69" />
+          <folding>
+            <element signature="method#Point#0;class#Point#0" expanded="false" />
+            <element signature="method#setPoints#0;class#Point#0" expanded="false" />
+            <element signature="method#pointToString#0;class#Point#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Polygon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="170">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding>
             <element signature="method#Polygon#0;class#Polygon#0" expanded="false" />
-            <element signature="method#area#0;class#Polygon#0" expanded="false" />
-            <element signature="method#originDistance#0;class#Polygon#0" expanded="false" />
+            <element signature="method#toString#0;class#Polygon#0" expanded="false" />
             <element signature="method#compareTo#0;class#Polygon#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Circle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1405#0" expanded="true" />
           </folding>
         </state>
       </provider>

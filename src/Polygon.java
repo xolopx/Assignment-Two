@@ -5,9 +5,6 @@ import java.lang.Math;
 
 public class Polygon extends PlanarShape{
 
-    private int pointNum;           //This is the number of points in the polygon
-    private Point[] sequence;      //This is the array of points in the polygon
-
     //constructor. The polygon MUST be given a size.
     Polygon(int numPoints) {
         pointNum = numPoints;           //assigning number of points
@@ -17,12 +14,6 @@ public class Polygon extends PlanarShape{
             sequence[i] = new Point();
         }
     }
-
-    //Will return a point in a location in sequence array. It will return a pointer to a point.
-    public Point getPoint(int index) {
-        return sequence[index];
-    }
-
     //Formats the points of the polygon and it's area and returns as a string.
     public String toString() {
 
@@ -37,7 +28,6 @@ public class Polygon extends PlanarShape{
         theString += "]:area_value" + String.format("%5.2f", area());
         return theString;
     }
-
     //Calculates the area inside of the polygon.
     public double area() {
         double area = 0;
@@ -51,20 +41,6 @@ public class Polygon extends PlanarShape{
 
         return (0.5 * Math.abs(area));
     }
-
-    //Returns the distance of the point closest to the origin. For some reason.
-    public double originDistance() {
-        //initialize the distance to one of the points.
-        double distance = sequence[0].distOrigin();
-        for (int i = 0; i < pointNum; i++) {
-            if (distance > sequence[i].distOrigin()) {
-                distance = sequence[i].distOrigin();
-            }
-        }
-
-        return distance;
-    }
-
     //This method compares the polygons passed to it, if the "newPolygon" is larger it will return true else false.
     //This is an override of an abstract method from the interface ComparePolygons
     public int compareTo(PlanarShape oldPolygon){
