@@ -43,7 +43,8 @@ public class SortedPolygons extends MyPolygons implements ComparePolygons {
             return true;
         }
         //If they're 'equal' check which is closest to origin.
-        else if(areaOld == areaNew || areaNew<=upperLimit && areaOld >= lowerLimit)
+        //Check this if condition
+        else if(areaOld == areaNew || areaNew<=upperLimit && areaNew >= lowerLimit)
         {
             //The new polygon was closest to the origin so return it as the largest.
             if(oldPolygon.closestOrigin() >= newPolygon.closestOrigin())
@@ -56,6 +57,7 @@ public class SortedPolygons extends MyPolygons implements ComparePolygons {
         //If it somehow gets to this condition return false.
         else return false;
     }
+
     //Moves current to a desired position.
     //Mode 0 = forward, Mode 1 = back.
     //Position is where to go to.
@@ -65,13 +67,13 @@ public class SortedPolygons extends MyPolygons implements ComparePolygons {
 
         if(mode==1){
             for(int i = 0;i<toPosition;i++){
-                forward();
+                back();
             }
         }
         else if(mode == 0)
         {
             for(int i = 0;i<toPosition;i++){
-              back();
+              forward();
             }
         }
         else{
@@ -106,21 +108,34 @@ public class SortedPolygons extends MyPolygons implements ComparePolygons {
                 //This is the "sorted section" comparison loop.
                 for(int i=0;i<sortedPosition;i++){
 
-                    //This will move to the polygon to check against in the "sorted section" (aka SS).
+                    //This will move to the correct polygon in the "sorted section" (aka SS).
                     moveCurrent(0,sortedPosition-i);
                     polySS = getPolygon();
                     //If the "unsorted section" (aka US) polygon is smaller than the SS polygon they must swap positions.
                     //To do this the US polygon is deleted and reinserted in the correct position, pushing items to it's
                     //right (lower in the list) down.
-                    if(!comparePoly(polyUS,polySS)){
+                    if(comparePoly(polySS,polyUS)){
+                        System.out.println("Got into the swap spot!");
                         //This is the position that the polyUS is at.
-                        moveCurrent(0,sortedPosition+1);
+                        moveCurrent(0,sortedPosition+1-i);
                         //remove the US polygon.
                         remove();
-                        //reinsert US polygon in the correct position. The position will be one to the right
-                        insert(getCurrentPosition()-1,polyUS);
+                        //current pts position.
+                        int currentPos = getCurrentPosition();
+                        //if you removed tail.
+                        if(currentPos==0){
+                            //move back from sentinel one spot.
+                            moveCurrent(1,1);
+                            currentPos=getCurrentPosition()+1;
+                        }
+
+
+
+                        //reinsert US polygon in the correct position. The position will be before polyUS.
+                        insert(currentPos-1, polyUS);
+
                     }
-                    //Else temp1 was larger and so can stay in its position.
+                    //Else polyUS was bigger and is in the right position.
                 }
                 //Each time a polygon is sorted this goes down.
                 leftToSort --;
@@ -131,12 +146,11 @@ public class SortedPolygons extends MyPolygons implements ComparePolygons {
 
     }
 
-
-
     //This function swaps the position of two polygons in the list.
     public void swap(){
 
     }
+
     //returns the current position.
     public int getCurrentPosition(){
         int thePosition = 0;

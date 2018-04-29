@@ -20,22 +20,18 @@ public class theMain2
         printer(unsortedList);
         System.out.println("\n\n");
 
+//        Polygon paul = new Polygon (3);
+//        unsortedList.insert(2,paul);
+//        printer(unsortedList);
+
+
         sortedList.sort();
 
-
-
-
-
-
-        System.out.println("The sorted list: \n");
+        System.out.println("Sorted list: \n");
         printer(sortedList);
         System.out.println("\n\n");
 
-        if(sortedList.comparePoly(sortedList.getHead(), sortedList.getTail())){
-            System.out.println("The head is bigger than the tail.");
-        }else{
-            System.out.println("The tail is bigger than the head.");
-        }
+
     }
     //Reads and stores file content into a MyPolygons list and returns that list. Is for returning MyPolygons.
     public static MyPolygons readerSup(MyPolygons theList, String theFile){

@@ -58,11 +58,17 @@ public class MyPolygons {
         //Set the sentinels next's previous to be the new Node.
         current_ptr_.get_next().set_previous(freshNode);
         //Set the sentinel's next to be the new node.
-        sentinel.set_next(freshNode);
+        current_ptr_.set_next(freshNode);
         //set current to the new node.
         current_ptr_= freshNode;
         //increment the ol' listo.
         list_length++;
+
+//        //inserts polygon before location of current.
+//        Node newNode = new Node(data);
+//        newNode.prev().next(newNode);
+//        newNode.next().prev(newNode);
+//        length++;
 
     }
 
@@ -81,13 +87,13 @@ public class MyPolygons {
     current_ptr_= sentinel;
 }
 
-    //inserts a node in the position given by pushing the node in that position down in the list.
+    //inserts a node after position given.
     public void insert(int position, Polygon data)
     {
         //reset the position of the current pointer to have a starting point.
         reset();
         //cycle through the linked list until the position is reached.
-        for(int i = 0;i<position;i++)
+        for(int i = 1;i<position;i++)
         {
             //will cycle the current pointer forward to the position.
             forward();
