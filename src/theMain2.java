@@ -13,17 +13,14 @@ public class theMain2
         sortedList = readerSub(sortedList,"data.txt");
         //print the list
         printer(sortedList);
-        //create a polygon to add.
-        Polygon paul = new Polygon(4);
-        //Insert sort the bastard.
-        sortedList.insertInOrder(paul);
-        //print again .
-        printer((sortedList));
-
-
-
-
+//        //create a polygon to add.
+//        Polygon paul = new Polygon(4);
+//        //Insert sort the bastard.
+//        sortedList.insertInOrder(paul);
+//        //print again .
+//        printer((sortedList));
     }
+
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning LinkedList.
     public static LinkedList readerSup(LinkedList<PlanarShape> theList, String theFile){
 
@@ -71,6 +68,7 @@ public class theMain2
                     newPolygon.getPoint(numberOfPoints).setPoints(newPolygon.getPoint(0).getX(),newPolygon.getPoint(0).getY());
                     //Adding the point populated polygon to the head of the list.
                    theList.add_to_head(newPolygon);
+
                 }
             }
             fileReader.close();
@@ -84,7 +82,6 @@ public class theMain2
 
         return theList;
     }
-
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning SortedList.
     public static SortedList readerSub(SortedList<PlanarShape> theList, String theFile){
 
@@ -131,7 +128,7 @@ public class theMain2
                     //Sets the last point to also be the first point.
                     newPolygon.getPoint(numberOfPoints).setPoints(newPolygon.getPoint(0).getX(),newPolygon.getPoint(0).getY());
                     //Adding the point populated polygon to the head of the list.
-                    theList.add_to_head(newPolygon);
+                    theList.insertInOrder(newPolygon);
                 }
             }
             fileReader.close();
@@ -145,18 +142,14 @@ public class theMain2
 
         return theList;
     }
-
     //Prints out the contents of a list as they occur head to tail.
     public static void printer(LinkedList theList){
-        //the list length represents the number of polygons inside.
-        int length = theList.getSize();
-        //reset the current pointer to sentinel which houses no data so then move forward one space.
-        theList.reset();
-        theList.forward();
-        //Loop for as many polygons that are inside.
-        for(int i = 0; i<length;i++){
-            System.out.println(theList.getObject().toString());
-            theList.forward();
+
+        //This is the iterator for the list.
+        Iterator<PlanarShape> theIterator = theList.iterator();
+        //Loop until there is no next new item in the list, using iterator.
+        while(theIterator.hasNext()){
+            System.out.println(theIterator.next());
         }
         System.out.println("\n\n");
     }

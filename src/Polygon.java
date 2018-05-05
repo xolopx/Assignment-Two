@@ -25,7 +25,7 @@ public class Polygon extends PlanarShape{
                 theString += ", ";
             }
         }
-        theString += "]:area_value" + String.format("%5.2f", area());
+        theString += "]:" + String.format("%5.2f", area());
         return theString;
     }
     //Calculates the area inside of the polygon.
@@ -43,6 +43,7 @@ public class Polygon extends PlanarShape{
     }
     //This method compares the polygons passed to it, if the "newPolygon" is larger it will return true else false.
     //This is an override of an abstract method from the interface ComparePolygons
+    @Override
     public int compareTo(PlanarShape oldPolygon){
 
         //Get the areas of the polygons in question.

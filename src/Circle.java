@@ -32,7 +32,7 @@ public class Circle extends PlanarShape{
                 theString += ", ";
             }
         }
-        theString += "]:area_value" + String.format("%5.2f", area());
+        theString += "]:" + String.format("%5.2f", area());
         return theString;
     }
 

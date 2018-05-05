@@ -25,7 +25,7 @@ public class SortedList<T extends Comparable<T>> extends LinkedList<T>{
     //Moves current to a desired position.
     //Mode 0 = forward, Mode 1 = back.
     //Position is where to go to.
-    void moveCurrent(int mode, int toPosition)
+    private void moveCurrent(int mode, int toPosition)
     {
         reset();
 

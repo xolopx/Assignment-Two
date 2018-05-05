@@ -1,14 +1,22 @@
 /**
  * Created by tom on 16/04/2018.
  */
-public class LinkedList<T> {
+//Import iterator libraries and the
+import java.util.Iterator;
+import java.util.ConcurrentModificationException;
+import java.util.NoSuchElementException;
+
+public class LinkedList<T> implements Iterable<T>{
 
     //"protected" maintains encapsulation but allows subclasses access to member variables.
     protected Node<T> head_ptr_ = new Node();
     protected Node<T> tail_ptr_ = new Node();
     protected Node<T> current_ptr_ = new Node();
     protected Node<T> sentinel = new Node();
+    //the length of the list.
     protected int list_length = 0;
+    //the modification count of the list.
+    protected int modCount = 0;
 
     LinkedList() {
 
@@ -36,7 +44,6 @@ public class LinkedList<T> {
         reset();
         add(data);
     }
-
     //This adds a new node and piece of data to the tail of the list. uses add() method.
     public void add_to_tail(T data) {
         //Set current to the previous to sentinel. Point to sentinel as add() pushed the list down.
@@ -44,7 +51,6 @@ public class LinkedList<T> {
         //pop that badboi in the list yo.
         add(data);
     }
-
     //This is a generic method used for both add to head and tail. It creates a new node and places the data in it then
     //places the node in a position that is dictated by where current_ptr_ points.
     public void add(T data)
@@ -63,6 +69,8 @@ public class LinkedList<T> {
         current_ptr_= freshNode;
         //increment the ol' listo.
         list_length++;
+        //increment the modification count
+        modCount++;
 
 //        //inserts polygon before location of current.
 //        Node newNode = new Node(data);
@@ -71,22 +79,18 @@ public class LinkedList<T> {
 //        length++;
 
     }
-
     //Moves the current ptr forward.
     public void forward() {
     current_ptr_ = current_ptr_.get_next();
 }
-
     //Moves the current ptr back.
     public void back() {
     current_ptr_ = current_ptr_.get_previous();
 }
-
     //Resets the current pointer to the sentinel.
     public void reset() {
     current_ptr_= sentinel;
 }
-
     //inserts a node after position given.
     public void insert(int position, T data)
     {
@@ -101,7 +105,6 @@ public class LinkedList<T> {
         //Position is now reached so add the new node.
         add(data);
     }
-
     //Takes the head off the list and returns the data inside it.
     public T pop()
     {
@@ -116,8 +119,6 @@ public class LinkedList<T> {
 
         return theHead.get_data();
     }
-
-
     //Simply removes the head of the list.
     public void deleteHead()
     {
@@ -133,7 +134,6 @@ public class LinkedList<T> {
     public int getSize() {
     return list_length;
 }
-
     //Removes the node at the current ptr.
     public void remove() {
 
@@ -145,8 +145,10 @@ public class LinkedList<T> {
     forward();
     //decrement length.
     list_length--;
-    }
+    //increment mod count.
+    modCount++;
 
+    }
     //Returns the data stored in the head node.
     public T getHead() {
         //This is the head polygon.
@@ -155,7 +157,6 @@ public class LinkedList<T> {
         return theHead;
         //Sure thing babe.
     }
-
     //Returns the data stored in the tail node.
     public T getTail(){
         //This is the tail polygon.
@@ -163,6 +164,62 @@ public class LinkedList<T> {
 
         return theTail;
 
+    }
+
+    //Returns an instance of the iterator as defined in the class "Listerator".
+    @Override
+    public Iterator<T> iterator(){
+        return new Listerator(sentinel.get_next());
+    }
+
+    private class Listerator implements Iterator<T>{
+
+        //when list's iterator is created it receives the head node of the list and the modification count of the list.
+        private Node<T> currentNode;
+        private int countedModCount;
+
+        //Constructor is private so that it can be created the by the Linked List.
+        private Listerator(Node<T> tempNode){
+            currentNode = tempNode;
+            countedModCount = modCount;
+        }
+
+        public int getModCount(){
+            return modCount;
+        }
+        //Overriding the hasNext function of Iterable.
+        //For a doubly linked linked list checks that the current equals the sentinel.
+        @Override
+        public boolean hasNext(){
+           return currentNode != sentinel;
+        }
+
+        //Overridden method from the Iterable interface that will return the generic type of the linked list.
+        //The method will return the current node and "iterate" (bazinga) the current to the next node in the list.
+        @Override
+        public T next(){
+            //If the modification count of the iterator doesn't match the list.
+            if(getModCount() != countedModCount){
+               throw(new ConcurrentModificationException("You made modifications without using the iterator yo'."));
+            }
+            //If the list doesn't have a next item.
+            if(!hasNext()){
+                throw(new NoSuchElementException("There ain't nothing out here brother."));
+            }
+
+            T object = currentNode.get_data();
+            currentNode = currentNode.get_next();
+            return object;
+        }
+
+        //Overrides the function for remove from iterable.
+        //Removes the object stored in current. New current is node that was before the original current.
+        @Override
+        public void remove(){
+            currentNode.get_previous().set_next(currentNode.get_next());
+            currentNode.get_next().set_previous(currentNode.get_previous());
+            currentNode = currentNode.get_previous();
+        }
     }
 
 }
