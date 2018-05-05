@@ -11,40 +11,48 @@ public class Circle extends PlanarShape{
 
     private double radius = 0;
 
-    //constructor. The polygon MUST be given a size.
-    Circle(int numPoints, double radii) {
-        pointNum = numPoints;           //assigning number of points
-        sequence = new Point[pointNum]; //initializing the already declared array of points.
 
-        for (int i = 0; i < numPoints; i++) { //Populating array with Points.
-            sequence[i] = new Point();
-        }
+    //constructor. The polygon MUST be given a size.
+    Circle(double xCoord, double yCoord, double radii) {
+        pointNum = 1;
+        //set the radius.
+        radius = radii;
+        sequence = new Point[1];
+        //set the center point.
+        sequence[0] = new Point();
+        sequence[0].setPoints(xCoord,yCoord);
+
+
     }
 
     //Formats the points of the polygon and it's area and returns as a string.
     public String toString() {
 
-        String theString = "CIRC = [";
-        //The last point in sequence is repeated so we don't want to print it hence i<pointNum-1.
-        for (int i = 0; i < pointNum - 1; i++) {
-            theString += sequence[i].pointToString();
-            if (i != pointNum - 2) {
-                theString += ", ";
-            }
-        }
+        //Circle string is rather simpler.
+        String theString = "CIRC = ["+ sequence[0].pointToString()+", "+radius;
         theString += "]:" + String.format("%5.2f", area());
         return theString;
     }
 
     //Calculates the area inside of the polygon.
     public double area() {
-
-        double radius = Math.sqrt(Math.pow(sequence[0].getX()-sequence[1].getX(),2)+Math.pow(sequence[0].getX()-sequence[1].getX(),2));
-
         return (Math.PI*Math.pow(radius,2));
     }
 
+    //Overriding the PlanarShapes origin Distance
+    @Override
+    //Returns the distance of the point closest to the origin. For some reason.
+    public double originDistance() {
+        //initialize the distance to one of the points.
+        double distance = sequence[0].distOrigin();
+        for (int i = 0; i < pointNum; i++) {
+            if (distance > sequence[i].distOrigin()) {
+                distance = sequence[i].distOrigin();
+            }
+        }
 
+        return distance-radius;
+    }
 }
 
 

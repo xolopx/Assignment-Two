@@ -77,67 +77,50 @@ public class theMain2
         return theList;
     }
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning SortedList.
-    public static SortedList readerSub(SortedList<PlanarShape> theList, String theFile){
+    public static SortedList readerSub(SortedList<PlanarShape> theList, String theFile) {
 
-        int length,count = 0;
-        double x,y =0;
-
-
-        try{
+        try {
             File dataFile = new File(theFile);
             Scanner theScanner = new Scanner(dataFile);
             //Continue while the file has contents to be read in.
-            while(theScanner.hasNext()){
-                switch(theScanner.next()){
+            while (theScanner.hasNext()) {
+                switch (theScanner.next()) {
                     //polygon
                     case "P":
                         //read in the length.
-                        length = theScanner.nextInt();
-                        count = 0;
+                        int length = theScanner.nextInt();
+                        int count = 0;
+                        double x, y = 0;
                         //create a polygon
                         Polygon theGon = new Polygon(length);
 
                         //This will populate with points yo'.
-                        while(count!=length){
+                        while (count != length) {
                             //get the pointies.
                             x = theScanner.nextDouble();
                             y = theScanner.nextDouble();
                             //set the point.
-                            theGon.getPoint(count).setPoints(x,y);
+                            theGon.getPoint(count).setPoints(x, y);
                             //add the point to the last index position as well.
-                            if(count==0){
-                                theGon.getPoint(length-1).setPoints(x,y);
+                            if (count == 0) {
+                                theGon.getPoint(length - 1).setPoints(x, y);
                             }
                             count++;
 
-
                         }
+
                         theList.insertInOrder(theGon);
                     break;
                     //circle
                     case "C":
                         //read in the length.
-                        length = theScanner.nextInt();
-                        count = 0;
-                        //create a polygon
-                        Circle theCirc = new Circle(length);
-
-                        //This will populate with points yo'.
-                        while(count!=length){
-                            //get the pointies.
-                            x = theScanner.nextDouble();
-                            y = theScanner.nextDouble();
-                            //set the point.
-                            theGon.getPoint(count).setPoints(x,y);
-                            //add the point to the last index position as well.
-                            if(count==0){
-                                theGon.getPoint(length-1).setPoints(x,y);
-                            }
-                            count++;
-
-
-                        }
-                        theList.insertInOrder(theGon);
+                        double radius = theScanner.nextDouble();
+                        x = theScanner.nextDouble();
+                        y = theScanner.nextDouble();
+                        //Populate the circle with data.
+                        Circle theCirc = new Circle(x, y, radius);
+                        //Insert the circle into the list.
+                        theList.insertInOrder(theCirc);
                     break;
                     //semicircle
                     case "S":
@@ -147,11 +130,13 @@ public class theMain2
                 }
             }
 
-        }
-        catch(FileNotFoundException ex) {
+
+
+
+        }catch(FileNotFoundException ex)
+        {
             System.out.println("Unable to open file '" + theFile + "'");
         }
-
         return theList;
     }
     //Prints out the contents of a list as they occur head to tail.

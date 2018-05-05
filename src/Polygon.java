@@ -31,7 +31,6 @@ public class Polygon extends PlanarShape{
     //Calculates the area inside of the polygon.
     public double area() {
         double area = 0;
-        double interimResult = 0;
         //"n" form the formula is 1 more than the number of points on the polygon. This is not considered anywhere so we
         // modify the formula to be (n-1) instead of (n-2).
         for (int i = 0; i < (pointNum - 1); i++) {
