@@ -58,10 +58,7 @@ public class SortedList<T extends Comparable<T>> extends LinkedList<T>{
         //polySS = sorted section polygon.
         T polyUS,polySS;
 
-        if(list_length == 0 || list_length == 1){
-            System.out.println("Why sort such a small list yo'?");
-        }
-        else{
+        if(list_length!=0||list_length!=1){
             //leftToSort will be decremented as each polygon is processed. This is the main processing loop.
             while(leftToSort !=0){
                 //Move the current to the beginning of the unsorted list.

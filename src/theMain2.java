@@ -13,12 +13,6 @@ public class theMain2
         sortedList = readerSub(sortedList,"data.txt");
         //print the list
         printer(sortedList);
-//        //create a polygon to add.
-//        Polygon paul = new Polygon(4);
-//        //Insert sort the bastard.
-//        sortedList.insertInOrder(paul);
-//        //print again .
-//        printer((sortedList));
     }
 
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning LinkedList.
@@ -85,59 +79,77 @@ public class theMain2
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning SortedList.
     public static SortedList readerSub(SortedList<PlanarShape> theList, String theFile){
 
-        //This is what the text from the file will go in.
-        String line;
-        //Initilising x and y coords.
-        //length for the string
-        //counter for the forloop.
-        int x,y,length,counter = 0;
+        int length,count = 0;
+        double x,y =0;
 
 
         try{
-            //Open the file reader.
-            FileReader fileReader = new FileReader(theFile);
-            //Use that file reader to create a buffered reader. It's superior.
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            //While the file has contents continue reading in. Each line represent a polygon.
+            File dataFile = new File(theFile);
+            Scanner theScanner = new Scanner(dataFile);
+            //Continue while the file has contents to be read in.
+            while(theScanner.hasNext()){
+                switch(theScanner.next()){
+                    //polygon
+                    case "P":
+                        //read in the length.
+                        length = theScanner.nextInt();
+                        count = 0;
+                        //create a polygon
+                        Polygon theGon = new Polygon(length);
 
-            while((line = bufferedReader.readLine())!=null) {
+                        //This will populate with points yo'.
+                        while(count!=length){
+                            //get the pointies.
+                            x = theScanner.nextDouble();
+                            y = theScanner.nextDouble();
+                            //set the point.
+                            theGon.getPoint(count).setPoints(x,y);
+                            //add the point to the last index position as well.
+                            if(count==0){
+                                theGon.getPoint(length-1).setPoints(x,y);
+                            }
+                            count++;
 
-                //Resetting the counter
-                counter = 0;
 
-                //If the character is a P then you had better read in some values my dude.
-                if(line.charAt(0) == 'P') {
+                        }
+                        theList.insertInOrder(theGon);
+                    break;
+                    //circle
+                    case "C":
+                        //read in the length.
+                        length = theScanner.nextInt();
+                        count = 0;
+                        //create a polygon
+                        Circle theCirc = new Circle(length);
 
-                    //This is how many points is in the polygon & will always be 1 whitespace away from 'P' to the right.
-                    int numberOfPoints = Integer.parseInt(String.valueOf(line.charAt(2)));
-                    //Initialising a new polygon. numberOfPoints +1 for extra copy of first point.
-                    Polygon newPolygon = new Polygon(numberOfPoints + 1);
-                    //This is the length of the string.
-                    length = line.length();
+                        //This will populate with points yo'.
+                        while(count!=length){
+                            //get the pointies.
+                            x = theScanner.nextDouble();
+                            y = theScanner.nextDouble();
+                            //set the point.
+                            theGon.getPoint(count).setPoints(x,y);
+                            //add the point to the last index position as well.
+                            if(count==0){
+                                theGon.getPoint(length-1).setPoints(x,y);
+                            }
+                            count++;
 
-                    //Cycle through the polygon extracting point information.
-                    for(int i = 4; i<(length);i+=4, counter++) {
 
-                        //Casting characters to integers.
-                        x = Integer.parseInt(String.valueOf(line.charAt(i)));
-                        y = Integer.parseInt(String.valueOf(line.charAt(i+2)));
-                        //System.out.println("This is x: " + x + " and this is y: " + y + ".");
-                        newPolygon.getPoint(counter).setPoints(x,y);
+                        }
+                        theList.insertInOrder(theGon);
+                    break;
+                    //semicircle
+                    case "S":
 
-                    }
-                    //Sets the last point to also be the first point.
-                    newPolygon.getPoint(numberOfPoints).setPoints(newPolygon.getPoint(0).getX(),newPolygon.getPoint(0).getY());
-                    //Adding the point populated polygon to the head of the list.
-                    theList.insertInOrder(newPolygon);
+                    break;
+
                 }
             }
-            fileReader.close();
+
         }
         catch(FileNotFoundException ex) {
             System.out.println("Unable to open file '" + theFile + "'");
-        }
-        catch(IOException ex){
-            System.out.println("Error reading file '"+theFile+"'");
         }
 
         return theList;
