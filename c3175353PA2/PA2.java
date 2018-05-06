@@ -1,22 +1,21 @@
 import java.io.*;
 import java.util.*;
 
-public class theMain2
+public class PA2
 {
 
     public static void main(String[] args) {
-
-        //Create an empty list.
-        SortedList<PlanarShape> sortedList = new SortedList();
-
+        String theFile = Arrays.toString(args);
+        //trim the fat.
+        theFile = theFile.substring(1, theFile.length()-1);
+        SortedList<PlanarShape> sortedList = new SortedList<PlanarShape>();
         //read in data file.
-        sortedList = readerSub(sortedList,"data.txt");
+        sortedList = readerSub(sortedList,theFile);
         //print the list
         printer(sortedList);
     }
-
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning LinkedList.
-    public static LinkedList readerSup(LinkedList<PlanarShape> theList, String theFile){
+    private static LinkedList readerSup(LinkedList<PlanarShape> theList, String theFile){
 
         //This is what the text from the file will go in.
         String line;
@@ -77,7 +76,8 @@ public class theMain2
         return theList;
     }
     //Reads and stores file content into a LinkedList list and returns that list. Is for returning SortedList.
-    public static SortedList readerSub(SortedList<PlanarShape> theList, String theFile) {
+    //This is shapefactory.
+    private static SortedList<PlanarShape> readerSub(SortedList<PlanarShape> theList, String theFile) {
 
         try {
             File dataFile = new File(theFile);
@@ -124,14 +124,21 @@ public class theMain2
                     break;
                     //semicircle
                     case "S":
+                    double xCoord1,xCoord2,yCoord1,yCoord2;
 
+                    xCoord1 = theScanner.nextDouble();
+                    yCoord1 = theScanner.nextDouble();
+                    xCoord2 = theScanner.nextDouble();
+                    yCoord2 = theScanner.nextDouble();
+
+                    //Populate a semicircle with data.
+                    Semicircle theSemi = new Semicircle(xCoord1,yCoord1,xCoord2,yCoord2);
+                    //insert the semicircle in the list.
+                    theList.insertInOrder(theSemi);
                     break;
 
                 }
             }
-
-
-
 
         }catch(FileNotFoundException ex)
         {
@@ -140,7 +147,7 @@ public class theMain2
         return theList;
     }
     //Prints out the contents of a list as they occur head to tail.
-    public static void printer(LinkedList theList){
+    private static void printer(LinkedList<PlanarShape> theList){
 
         //This is the iterator for the list.
         Iterator<PlanarShape> theIterator = theList.iterator();
